@@ -13,8 +13,11 @@ class PostsController < ApplicationController
   def create
     # render plain: params[:post].inspect
     @post = Post.new(post_params)
-    @post.save
-    redirect_to posts_path
+    if @post.save
+      redirect_to posts_path
+    else
+      render plain: @post.errors.inspect
+    end
   end
 
   private

@@ -8,8 +8,9 @@ class PostsController < ApplicationController
   end
 
   def new
-
+    @post = Post.new
   end
+
   def create
     # render plain: params[:post].inspect
     @post = Post.new(post_params)

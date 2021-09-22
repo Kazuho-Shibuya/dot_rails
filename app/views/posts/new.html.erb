@@ -8,6 +8,9 @@
   </p>
   <p>
     <%= f.text_area :body, placehorder: 'enter body text' %>
+    <% if @post.errors.messages[:body].any? %>
+      <span class="error"><%= @post.errors.messages[:body][0]%></span>
+    <% end %>
   </p>
   <p>
     <%= f.submit %>
